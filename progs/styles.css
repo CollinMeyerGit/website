@@ -2,31 +2,19 @@
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: center;
-	align-items: center;
-	height: 97vh;
 }
-#outContainer{
+.divs{
 	display: flex;
-	flex-flow: row nowrap;
+	flex-flow: row  nowrap;
 	justify-content: center;
 	align-items: center;
-}
-.container{
-	display: flex;
-	flex-flow: column nowrap;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
-	margin-left: 5px;
-	margin-right: 5px;
 }
 .content{	
 	width: 40vw;
 	margin-top: 10px;
 	margin-bottom: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	text-align: center;
+	padding: 5px;
 }
 p{
 	background-color: #c44b4b;
@@ -35,4 +23,22 @@ p{
 }
 input{
 	border-radius: 8px;
+}
+#checkButton{
+	width: 80vw;
+	height: auto;
+	padding: 5px;
+}
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color: black;
+  height: 1px;
+  width: 60vw;
+}
+#inputDiv{
+	display: flex;
+	justify-content: center;
 }

@@ -9,18 +9,17 @@
   <meta name="author" content="Collin Meyer">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=EB+Garamond" />
+  <link rel="shortcut icon" href="../flavicon.ico" type="image/x-icon" />
 
 </head>
 
 <body>
 	<div id="fullContainer">
-		<div id="outContainer">
-			<div id="textContainer" class="container">
-			</div>
-			<form id="formContainer" class="container">
-			</form>
+		<form id="formContainer" class="container">
+		</form>
+		<div id="inputDiv">
+			<input type="button" value="Submit and Check Answers" id="checkButton" onclick="checkVals()"/>
 		</div>
-		<input type="button" value="Submit and Check Answers" id="checkButton" onclick="checkVals()"/> 
 	</div>
 </body>
 	<script>
@@ -28,7 +27,7 @@
 			if(check == 0){
 				for(i=0;i < count; i++){
 					var givenAnswer = document.getElementById(i).value;
-					if(givenAnswer != answers[i]){
+					if(givenAnswer.toLowerCase() != answers[i].toLowerCase()){
 						document.getElementById(i).value = (("Wrong: ").concat(givenAnswer)).concat((" | Correct Is: ").concat(answers[i]));
 					}else{
 						document.getElementById(i).value = ("Correct: ").concat(answers[i]);
@@ -52,22 +51,33 @@
   			}
 		}
 		var check = 0;
-		const questions = ["First?","Last?","Birth?","Home?"];
-		const answers = ["Collin", "Meyer", "09/09/01", "Moline"];
+		const questions = ["First Governing Document?","Second Governing Document?","Third Governing Document?","Fourth Governing Document?",
+"The ___________________ is a not-for profit arm of the Fraternity dedicated to promoting the ideals of the Fraternity through presenting scholarships and other awards?",
+"It was founded in ______?","The yearly minimum contribution is ____?","The annual giving program for student members is the ______________?",
+"Its IRS designation is ________?","Its current chairman is ____________?","The foundation board consists of _______(spelled out) members?",
+"The group that is now under the direction of the foundation is the _________?","Its symbol is the __________?","The symbol represents the ___________?",
+"The Foundation mission statement: ________________________?"];
+		const answers = ["Chapter By-Laws","Constitution and Statutory Code","Board of Director’s Statement of Policy","The Ritual of Alpha Kappa Psi","Alpha Kappa Psi Foundation",
+"1951","$10","Yellow Rose Society","501 (c) (3)","Alison Jennings","Eight","Alumni","Blue Sapphire","Alumni Objectives",
+"Providing resources for enhancing the educational experience of future business leaders"];
 		var count = (questions.length);
-		var textElement = document.getElementById("textContainer");
 		var formElement = document.getElementById("formContainer");
 		for(i=0; i < count; i++){
+			var div = document.createElement("div");
 			var para = document.createElement("p");
 			var node = document.createTextNode(questions[i]);
-			para.className = "content";
-			para.appendChild(node);
-			textElement.appendChild(para);
 			var input = document.createElement("input");
+			var line = document.createElement("hr");
 			input.type = "text";
-			input.className = "content";
 			input.id = i;
-			formElement.appendChild(input);
+			div.className = "divs";
+			para.className = "content";
+			input.className = "content";
+			para.appendChild(node);
+			div.appendChild(para);
+			div.appendChild(input);
+			formElement.appendChild(div);
+			formElement.appendChild(line);
 		}
 	</script>
 
