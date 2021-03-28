@@ -1,0 +1,38 @@
+#fullContainer{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 97vh;
+}
+#outContainer{
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+}
+.container{
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.content{	
+	width: 40vw;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+p{
+	background-color: #c44b4b;
+	border-radius: 20px;
+	font-family: "EB Garamond";
+}
+input{
+	border-radius: 8px;
+}

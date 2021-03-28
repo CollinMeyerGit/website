@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Quiz</title>
+  <meta name="description" content="Collin's Quizzer"
+  <meta name="author" content="Collin Meyer">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=EB+Garamond" />
+
+</head>
+
+<body>
+	<div id="fullContainer">
+		<div id="outContainer">
+			<div id="textContainer" class="container">
+			</div>
+			<form id="formContainer" class="container">
+			</form>
+		</div>
+		<input type="button" value="Submit and Check Answers" id="checkButton" onclick="checkVals()"/> 
+	</div>
+</body>
+	<script>
+		function checkVals(){
+			if(check == 0){
+				for(i=0;i < count; i++){
+					var givenAnswer = document.getElementById(i).value;
+					if(givenAnswer != answers[i]){
+						document.getElementById(i).value = (("Wrong: ").concat(givenAnswer)).concat((" | Correct Is: ").concat(answers[i]));
+					}else{
+						document.getElementById(i).value = ("Correct: ").concat(answers[i]);
+					}
+				}
+				check = 1;
+				document.getElementById("checkButton").value = ("Press To Reset Answers");
+			}else{
+				for(i=0;i<count;i++){
+					document.getElementById(i).value = ("");
+					check = 0;
+					document.getElementById("checkButton").value = ("Submit and Check Answers");
+				}
+			}
+		}
+		document.onkeydown = function (e) {
+ 			e = e || window.event;
+ 	 		switch (e.which || e.keyCode) {
+        			case 13 : checkVals();
+            				break;
+  			}
+		}
+		var check = 0;
+		const questions = ["First?","Last?","Birth?","Home?"];
+		const answers = ["Collin", "Meyer", "09/09/01", "Moline"];
+		var count = (questions.length);
+		var textElement = document.getElementById("textContainer");
+		var formElement = document.getElementById("formContainer");
+		for(i=0; i < count; i++){
+			var para = document.createElement("p");
+			var node = document.createTextNode(questions[i]);
+			para.className = "content";
+			para.appendChild(node);
+			textElement.appendChild(para);
+			var input = document.createElement("input");
+			input.type = "text";
+			input.className = "content";
+			input.id = i;
+			formElement.appendChild(input);
+		}
+	</script>
+
+</html>
